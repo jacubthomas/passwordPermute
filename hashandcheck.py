@@ -17,9 +17,9 @@ all_hashes = []
 with open('team1.txt') as file:
     lines = [line.strip() for line in file]
     all_hashes += lines
-# with open('team2hashes.txt') as file:
-#     lines = [line.strip() for line in file]
-#     all_hashes += lines
+with open('team2.txt') as file:
+    lines = [line.strip() for line in file]
+    all_hashes += lines
 
 # for x in files:
 #     if x != 'passwords/checked' and x != 'passwords/.DS_Store':
@@ -33,3 +33,6 @@ with open('passwords/ctf2430') as f:
         if hashed in all_hashes:
             print (f"HIT! password: {p}, hash = {hashed}")
             break
+
+
+# Ctf2430!, hash c5e5388f52a32a9e2a15a846cb51fdd6
