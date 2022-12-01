@@ -9,15 +9,27 @@ in each approach, it generates all permutations of capitalization of the phrase
 and adds in all combos of symbols and prints to output
 '''
 
-symbols = ['!','@','#','$','%','^','&','*','(',')','?', '_', '-']
+symbols = ['!','@','#','$','%','^','&','*','(',')','?', '_', '-', '~', '()', '|', '+', '-', '<', '>', ',', '.', '/', '\\']
 digits = ['1','2','3','4','5','6','7','8','9','0']
 letters = ['A', 'B', 'C' , 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-
+def all_casings(input_string):
+    if not input_string:
+        yield ""
+    else:
+        first = input_string[:1]
+        if first.lower() == first.upper():
+            for sub_casing in all_casings(input_string[1:]):
+                yield first + sub_casing
+        else:
+            for sub_casing in all_casings(input_string[1:]):
+                yield first.lower() + sub_casing
+                yield first.upper() + sub_casing
 
 ''' approach 1 '''
-phrase = 'CTF2'
-num = '430'
+phrase = 'IwannaWin'
+num = '1984'
 allCases = [x for x in all_casings(phrase)]
+# allCases2 = [x for x in all_casings(phrase2)]
 midphrase = []
 for x in allCases:
     for z in symbols:
@@ -43,7 +55,7 @@ for x in midphrase:
 
 ''' approach 2 '''
 
-# phrase = 'ctf2'
+# phrase = 'P@ssword'
 
 # def all_casings(input_string):
 #     if not input_string:
